@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const authRoutes = require('./routes/auth');
 const roomRoutes = require('./routes/rooms');
+const Message = require('./models/Message');
+const messageRoutes = require('./routes/messages');
 
 const app = express();
 app.use(cors());
@@ -19,8 +21,10 @@ mongoose.connect(process.env.MONGO_URI)
 
 app.use('/api/auth', authRoutes);
 app.use('/api/rooms', roomRoutes);
+app.use('/api/messages', messageRoutes);
 
 app.get('/', (req, res) => res.send('API running'));
+
 
 io.on('connection', (socket) => {
   console.log('A user connected:', socket.id);
@@ -30,8 +34,13 @@ io.on('connection', (socket) => {
     console.log(`Socket ${socket.id} joined room ${roomId}`);
   });
 
-  socket.on('sendMessage', ({ roomId, message, senderId }) => {
-    io.to(roomId).emit('receiveMessage', { message, senderId, timestamp: new Date() });
+  socket.on('sendMessage', async ({ roomId, text, senderId }) => {
+    try {
+      const message = await Message.create({ room: roomId, sender: senderId, text });
+      io.to(roomId).emit('receiveMessage', message);
+    } catch (err) {
+      console.error('Error saving message:', err.message);
+    }
   });
 
   socket.on('disconnect', () => {
