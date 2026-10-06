@@ -69,7 +69,7 @@ Both servers need to run simultaneously, backend on port 5000, frontend on port 
 
 ## Status
 
-Core functionality complete: auth, rooms, real-time messaging, persistence. Styling (Tailwind CSS), Docker, and CI (GitHub Actions) are in progress.
+Core functionality complete: auth, rooms, real-time messaging, persistence. Styling (Tailwind CSS) is in progress.
 
 ## Author
 
