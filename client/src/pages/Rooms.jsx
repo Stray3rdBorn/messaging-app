@@ -18,7 +18,7 @@ function Rooms() {
   }, []);
 
   const fetchRooms = async () => {
-    const res = await axios.get('http://localhost:5000/api/rooms', {
+    const res = await axios.get('/api/rooms', {
       headers: { Authorization: `Bearer ${token}` },
     });
     setRooms(res.data);
@@ -27,7 +27,7 @@ function Rooms() {
   const createRoom = async (e) => {
     e.preventDefault();
     await axios.post(
-      'http://localhost:5000/api/rooms',
+      '/api/rooms',
       { name: roomName },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -38,7 +38,7 @@ function Rooms() {
   const joinRoom = async (e) => {
     e.preventDefault();
     await axios.post(
-      `http://localhost:5000/api/rooms/${joinId}/join`,
+      `/api/rooms/${joinId}/join`,
       {},
       { headers: { Authorization: `Bearer ${token}` } }
     );

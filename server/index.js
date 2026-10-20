@@ -8,6 +8,7 @@ const authRoutes = require('./routes/auth');
 const roomRoutes = require('./routes/rooms');
 const Message = require('./models/Message');
 const messageRoutes = require('./routes/messages');
+const path = require('path');
 
 const app = express();
 app.use(cors());
@@ -22,8 +23,6 @@ mongoose.connect(process.env.MONGO_URI)
 app.use('/api/auth', authRoutes);
 app.use('/api/rooms', roomRoutes);
 app.use('/api/messages', messageRoutes);
-
-app.get('/', (req, res) => res.send('API running'));
 
 
 io.on('connection', (socket) => {
@@ -46,6 +45,11 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     console.log('User disconnected:', socket.id);
   });
+});
+
+app.use(express.static(path.join(__dirname, '../client/dist')));
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
 const PORT = process.env.PORT || 5000;

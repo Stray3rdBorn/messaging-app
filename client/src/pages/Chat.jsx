@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { io } from 'socket.io-client';
 
-const socket = io('http://localhost:5000');
+const socket = io();
 
 function Chat() {
   const { roomId } = useParams();
@@ -32,7 +32,7 @@ function Chat() {
   }, [messages]);
 
   const fetchHistory = async () => {
-    const res = await axios.get(`http://localhost:5000/api/messages/${roomId}`, {
+    const res = await axios.get(`/api/messages/${roomId}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     setMessages(res.data);
