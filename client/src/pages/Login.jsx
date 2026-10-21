@@ -21,31 +21,31 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-orange-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
-        <h2 className="text-2xl font-semibold mb-6 text-gray-800">Login</h2>
+        <h2 className="text-2xl font-semibold mb-6 text-orange-400 ">Login</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
-          <button type="submit" className="w-full bg-blue-500 text-white rounded py-2 hover:bg-blue-600 transition">
+          <button type="submit" className="w-full bg-orange-500 text-white rounded py-2 hover:bg-orange-600 transition">
             Login
           </button>
         </form>
         {error && <p className="text-red-500 text-sm mt-3">{error}</p>}
         <p className="text-sm text-gray-600 mt-4">
-          No account? <Link to="/signup" className="text-blue-500 hover:underline">Sign up</Link>
+          No account? <Link to="/signup" className="text-orange-500 hover:underline">Sign up</Link>
         </p>
       </div>
     </div>
