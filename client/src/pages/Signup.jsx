@@ -22,38 +22,40 @@ function Signup() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
-        <h2 className="text-2xl font-semibold mb-6 text-gray-800">Sign Up</h2>
+    <div className="relative min-h-screen flex items-center justify-center">
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/bg.jpg')" }}/>
+      <div className="absolute inset-0 bg-white/20" /> 
+      <div className="relative bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
+        <h2 className="text-2xl font-semibold mb-6 text-orange-400">Sign Up</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
             placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full border border-orange-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
           <input
             type="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full border border-orange-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full border border-orange-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
-          <button type="submit" className="w-full bg-blue-500 text-white rounded py-2 hover:bg-blue-600 transition">
+          <button type="submit" className="w-full bg-orange-500 text-white rounded py-2 hover:bg-orange-600 transition">
             Sign Up
           </button>
         </form>
         {error && <p className="text-red-500 text-sm mt-3">{error}</p>}
         <p className="text-sm text-gray-600 mt-4">
-          Already have an account? <Link to="/login" className="text-blue-500 hover:underline">Login</Link>
+          Already have an account? <Link to="/login" className="text-orange-500 hover:underline">Login</Link>
         </p>
       </div>
     </div>
