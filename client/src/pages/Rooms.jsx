@@ -53,8 +53,10 @@ function Rooms() {
 };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <div className="max-w-md mx-auto">
+     <div className="relative min-h-screen flex items-center justify-center">
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/bg.jpg')" }}/>
+      <div className="absolute inset-0 bg-white/20" />  
+      <div className="relative bg-white p-8 rounded-lg shadow-md w-full max-w-md md:max-w-2xl">
         <div className="flex justify-between items-center mb-6">
   <h2 className="text-2xl font-bold text-orange-400">Campfire</h2>
   <button onClick={logout} className="text-m font-semibold text-red-500 hover:underline">

@@ -46,10 +46,12 @@ function Chat() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
-      <div className="bg-white rounded-lg shadow w-full max-w-lg flex flex-col h-[500px]">
+    <div className="relative min-h-screen flex items-center justify-center">
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/bg.jpg')" }}/>
+      <div className="absolute inset-0 bg-white/20" />  
+      <div className="relative bg-white p-8 rounded-lg shadow-md w-full max-w-md md:max-w-2xl">
         <div className="flex items-center justify-between border-b px-4 py-3">
-          <h2 className="font-semibold text-gray-800">Chat Room</h2>
+          <h2 className="font-bold text-orange-400">Campsite</h2>
           <button onClick={() => navigate('/rooms')} className="text-sm text-blue-500 hover:underline">
             Back
           </button>
