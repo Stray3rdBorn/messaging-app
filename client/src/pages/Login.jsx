@@ -47,7 +47,7 @@ function Login() {
         </form>
         {error && <p className="text-red-500 text-sm mt-3">{error}</p>}
         <p className="text-sm text-gray-600 mt-4">
-          No account? <Link to="/signup" className="text-orange-500 hover:underline">Sign up</Link>
+          No account? <Link to="/signup" className="text-orange-500 hover:underline">Sign Up</Link>
         </p>
       </div>
     </div>

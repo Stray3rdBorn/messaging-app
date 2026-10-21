@@ -56,8 +56,8 @@ function Rooms() {
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-md mx-auto">
         <div className="flex justify-between items-center mb-6">
-  <h2 className="text-2xl font-semibold text-gray-800">ROOMS</h2>
-  <button onClick={logout} className="text-sm font-semibold text-red-500 hover:underline">
+  <h2 className="text-2xl font-bold text-orange-400">Campfire</h2>
+  <button onClick={logout} className="text-m font-semibold text-red-500 hover:underline">
     Logout
   </button>
 </div>
@@ -65,26 +65,26 @@ function Rooms() {
         <form onSubmit={createRoom} className="flex gap-2 mb-3">
           <input
             type="text"
-            placeholder="New room name"
+            placeholder="Name your new campfire..."
             value={roomName}
             onChange={(e) => setRoomName(e.target.value)}
-            className="flex-1 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="flex-1 border border-orange-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
-          <button type="submit" className="bg-blue-500 text-white rounded px-4 py-2 hover:bg-blue-600 transition">
-            Create
+          <button type="submit" className="bg-orange-500 text-white rounded px-4 py-2 hover:bg-orange-600 transition">
+            Light It
           </button>
         </form>
 
         <form onSubmit={joinRoom} className="flex gap-2 mb-6">
           <input
             type="text"
-            placeholder="Room ID to join"
+            placeholder="Enter a campsite code..."
             value={joinId}
             onChange={(e) => setJoinId(e.target.value)}
-            className="flex-1 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="flex-1 border border-orange-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
-          <button type="submit" className="bg-gray-700 text-white rounded px-4 py-2 hover:bg-gray-800 transition">
-            Join
+          <button type="submit" className="bg-gray-600 text-white rounded px-4 py-2 hover:bg-gray-700 transition">
+            Hop In
           </button>
         </form>
 
@@ -93,7 +93,7 @@ function Rooms() {
             <li key={room._id} className="p-3 flex justify-between items-center">
               <span
                 onClick={() => navigate(`/chat/${room._id}`)}
-                className="cursor-pointer font-medium text-gray-800 hover:text-blue-500"
+                className="cursor-pointer font-medium text-gray-800 hover:text-orange-500"
               >
                 {room.name}
               </span>
