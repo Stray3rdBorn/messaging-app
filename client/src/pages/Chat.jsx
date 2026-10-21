@@ -49,7 +49,7 @@ function Chat() {
     <div className="relative min-h-screen flex items-center justify-center">
       <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/bg2.png')" }}/>
       <div className="absolute inset-0 bg-white/20" />  
-      <div className="relative bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+      <div className="relative bg-white p-8 rounded-lg shadow-md w-full max-w-md md:max-w-xl">
         <div className="flex items-center justify-between border-b px-4 py-3">
           <h2 className="text-xl font-bold text-orange-400">Campsite</h2>
           <button onClick={() => navigate('/rooms')} className="text-semibold text-orange-500 hover:underline">

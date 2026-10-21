@@ -25,7 +25,7 @@ function Signup() {
     <div className="relative min-h-screen flex items-center justify-center">
       <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/bg.jpg')" }}/>
       <div className="absolute inset-0 bg-white/20" /> 
-      <div className="relative bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+      <div className="relative bg-white p-8 rounded-lg shadow-md w-full max-w-md md:max-w-xl">
         <h2 className="text-2xl font-bold mb-6 text-orange-500 text-center">The fires are lit. Find your spot.</h2>
         <h2 className="text-2xl font-semibold mb-6 text-orange-400">Sign Up</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
