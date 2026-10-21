@@ -21,8 +21,10 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-orange-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
+    <div className="relative min-h-screen flex items-center justify-center">
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"style={{ backgroundImage: "url('/bg.jpg')" }}/>
+      <div className="absolute inset-0 bg-white/20" />  
+      <div className="relative bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
         <h2 className="text-2xl font-semibold mb-6 text-orange-400 ">Login</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
