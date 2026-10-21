@@ -58,7 +58,7 @@ function Rooms() {
       <div className="absolute inset-0 bg-white/20" />  
       <div className="relative bg-white p-8 rounded-lg shadow-md w-full max-w-md md:max-w-2xl">
         <div className="flex justify-between items-center mb-6">
-  <h2 className="text-2xl font-bold text-orange-400">Campfire</h2>
+  <h2 className="text-2xl font-bold text-orange-400">Campground</h2>
   <button onClick={logout} className="text-m font-semibold text-red-500 hover:underline">
     Logout
   </button>
@@ -99,7 +99,7 @@ function Rooms() {
               >
                 {room.name}
               </span>
-              <span className="text-xs text-gray-400">{room._id}</span>
+              <span className="text-xs text-gray-500">Code: {room._id}</span>
             </li>
           ))}
         </ul>
