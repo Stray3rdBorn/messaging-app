@@ -99,7 +99,7 @@ function Rooms() {
               >
                 {room.name}
               </span>
-              <span className="text-xs text-gray-500">Code: {room._id}</span>
+              <span className="text-[11px] text-gray-500">Code: {room._id}</span>
             </li>
           ))}
         </ul>
