@@ -24,7 +24,7 @@ function Login() {
     <div className="relative min-h-screen flex items-center justify-center">
       <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/bg.jpg')" }}/>
       <div className="absolute inset-0 bg-white/20" />  
-      <div className="relative bg-white p-8 rounded-lg shadow-md w-full max-w-md md:max-w-xl">
+      <div className="relative bg-white p-8 rounded-lg shadow-md w-full max-w-sm md:max-w-md md:max-w-xl">
         <h2 className="text-2xl font-bold mb-6 text-orange-500 text-center ">Pull up a log and get warm.</h2>
         <h2 className="text-2xl font-semibold mb-6 text-orange-400 ">Login</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
