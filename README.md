@@ -4,6 +4,8 @@
 
 Full stack chat application built to practice real-time communication, authentication, and database design. Users can sign up, create or join chat rooms, and exchange messages instantly with full message history persisted to the database.
 
+**Live demo:** https://campfire-dcsw.onrender.com
+
 ## Features
 
 - User authentication (signup/login) with JWT
