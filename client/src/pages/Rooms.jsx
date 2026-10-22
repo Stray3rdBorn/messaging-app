@@ -67,7 +67,7 @@ function Rooms() {
         <form onSubmit={createRoom} className="flex gap-2 mb-3">
           <input
             type="text"
-            placeholder="Name your new campfire..."
+            placeholder="Name your new campsite..."
             value={roomName}
             onChange={(e) => setRoomName(e.target.value)}
             className="flex-1 border border-orange-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
@@ -99,7 +99,7 @@ function Rooms() {
               >
                 {room.name}
               </span>
-              <span className="text-[11px] text-gray-500">Code: {room._id}</span>
+              <span className="text-[10px] text-gray-500">Code: {room._id}</span>
             </li>
           ))}
         </ul>
