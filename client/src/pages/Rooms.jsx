@@ -8,6 +8,7 @@ function Rooms() {
   const [joinId, setJoinId] = useState('');
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
+  const userId = localStorage.getItem('userId');
 
   useEffect(() => {
     if (!token) {
@@ -45,6 +46,23 @@ function Rooms() {
     setJoinId('');
     fetchRooms();
   };
+
+  const renameRoom = async (room) => {
+  const name = window.prompt('New room name', room.name);
+  if (!name || !name.trim()) return;
+  await axios.put(`/api/rooms/${room._id}`, { name }, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  fetchRooms();
+};
+
+const deleteRoom = async (room) => {
+  if (!window.confirm(`Delete "${room.name}"? All its messages will be removed.`)) return;
+  await axios.delete(`/api/rooms/${room._id}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  fetchRooms();
+};
 
   const logout = () => {
   localStorage.removeItem('token');
@@ -99,7 +117,15 @@ function Rooms() {
               >
                 {room.name}
               </span>
-              <span className="text-[10px] text-gray-500">Code: {room._id}</span>
+              <div className="flex items-center gap-3">
+                <span className="text-xs text-gray-400">{room._id}</span>
+                {room.creator === userId && (
+                <>
+                  <button onClick={() => renameRoom(room)} className="text-xs text-blue-500 hover:underline">Edit</button>
+                  <button onClick={() => deleteRoom(room)} className="text-xs text-red-500 hover:underline">Delete</button>
+                 </>
+              )}
+        </div>
             </li>
           ))}
         </ul>
