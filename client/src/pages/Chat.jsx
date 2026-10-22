@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
-import { useParams, useNavigate } from 'react-router-dom';
-import { io } from 'socket.io-client';
+import { useState, useEffect, useRef } from "react";
+import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
+import { io } from "socket.io-client";
 
 const socket = io();
 
@@ -9,28 +9,28 @@ function Chat() {
   const { roomId } = useParams();
   const navigate = useNavigate();
   const [messages, setMessages] = useState([]);
-  const [text, setText] = useState('');
-  const token = localStorage.getItem('token');
-  const userId = localStorage.getItem('userId');
+  const [text, setText] = useState("");
+  const token = localStorage.getItem("token");
+  const userId = localStorage.getItem("userId");
   const bottomRef = useRef(null);
-  const [roomName, setRoomName] = useState('');
+  const [roomName, setRoomName] = useState("");
 
   useEffect(() => {
     fetchHistory();
     fetchRoom();
-    socket.emit('joinRoom', roomId);
+    socket.emit("joinRoom", roomId);
 
-    socket.on('receiveMessage', (message) => {
+    socket.on("receiveMessage", (message) => {
       setMessages((prev) => [...prev, message]);
     });
 
     return () => {
-      socket.off('receiveMessage');
+      socket.off("receiveMessage");
     };
   }, [roomId]);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   const fetchHistory = async () => {
@@ -41,27 +41,33 @@ function Chat() {
   };
 
   const fetchRoom = async () => {
-  const res = await axios.get(`/api/rooms/${roomId}`, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  setRoomName(res.data.name);
-};
+    const res = await axios.get(`/api/rooms/${roomId}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    setRoomName(res.data.name);
+  };
 
   const sendMessage = (e) => {
     e.preventDefault();
     if (!text.trim()) return;
-    socket.emit('sendMessage', { roomId, text, senderId: userId });
-    setText('');
+    socket.emit("sendMessage", { roomId, text, senderId: userId });
+    setText("");
   };
 
   return (
     <div className="relative min-h-screen flex items-center justify-center">
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/bg2.png')" }}/>
-      <div className="absolute inset-0 bg-white/20" />  
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/bg2.png')" }}
+      />
+      <div className="absolute inset-0 bg-white/20" />
       <div className="relative bg-white p-8 rounded-lg shadow-md w-fullmax-w-sm md:max-w-md md:max-w-xl">
         <div className="flex items-center justify-between border-b px-4 py-3">
-          <h2 className="text-xl font-bold text-orange-400">Campsite: {roomName}</h2>
-          <button onClick={() => navigate('/rooms')} className="text-semibold text-orange-500 hover:underline">
+          <h2 className="text-xl font-bold text-orange-400">{roomName}</h2>
+          <button
+            onClick={() => navigate("/rooms")}
+            className="text-semibold text-orange-500 hover:underline"
+          >
             Back
           </button>
         </div>
@@ -72,8 +78,8 @@ function Chat() {
               key={msg._id}
               className={`max-w-xs px-3 py-2 rounded-lg text-sm ${
                 msg.sender === userId
-                  ? 'bg-orange-500 text-white ml-auto'
-                  : 'bg-gray-300 text-gray-900'
+                  ? "bg-orange-500 text-white ml-auto"
+                  : "bg-gray-300 text-gray-900"
               }`}
             >
               {msg.text}
@@ -90,7 +96,10 @@ function Chat() {
             placeholder="Pass a note..."
             className="flex-1 border border-orange-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
-          <button type="submit" className="bg-orange-500 text-white rounded px-4 py-2 hover:bg-orange-600 transition">
+          <button
+            type="submit"
+            className="bg-orange-500 text-white rounded px-4 py-2 hover:bg-orange-600 transition"
+          >
             Send
           </button>
         </form>
