@@ -61,7 +61,7 @@ function Chat() {
         style={{ backgroundImage: "url('/bg2.png')" }}
       />
       <div className="absolute inset-0 bg-white/20" />
-      <div className="relative bg-white p-8 rounded-lg shadow-md w-fullmax-w-sm md:max-w-md md:max-w-xl">
+      <div className="relative bg-white p-8 rounded-lg shadow-md w-full max-w-sm md:max-w-md md:max-w-xl">
         <div className="flex items-center justify-between border-b px-4 py-3">
           <h2 className="text-xl font-bold text-orange-400">{roomName}</h2>
           <button
