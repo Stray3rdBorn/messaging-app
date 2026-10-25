@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 
-const socket = io();
+const socket = io({ autoConnect: false });
 
 function Chat() {
   const { roomId } = useParams();
@@ -18,14 +18,20 @@ function Chat() {
   useEffect(() => {
     fetchHistory();
     fetchRoom();
-    socket.emit("joinRoom", roomId);
 
+    socket.auth = { token };
+    socket.on("connect", () => {
+      socket.emit("joinRoom", roomId);
+    });
     socket.on("receiveMessage", (message) => {
       setMessages((prev) => [...prev, message]);
     });
+    socket.connect();
 
     return () => {
+      socket.off("connect");
       socket.off("receiveMessage");
+      socket.disconnect();
     };
   }, [roomId]);
 
@@ -50,7 +56,7 @@ function Chat() {
   const sendMessage = (e) => {
     e.preventDefault();
     if (!text.trim()) return;
-    socket.emit("sendMessage", { roomId, text, senderId: userId });
+    socket.emit("sendMessage", { roomId, text });
     setText("");
   };
 
