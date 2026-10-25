@@ -13,6 +13,18 @@ Full stack chat application built to practice real-time communication, authentic
 - Real-time messaging via WebSockets (Socket.io)
 - Message history persisted in MongoDB
 - Password hashing with bcrypt
+- Tailwind CSS styling across all pages
+- Logout button on the Rooms page
+- Room name displayed in the chat header
+- Room creator can rename and delete their rooms, and deleting a room also deletes its messages
+- Socket.io connections authenticated with the JWT during the handshake
+- Room membership checks on both live chat and message history
+- Message sender taken from the verified token instead of the client
+- Message validation (text only, trimmed, empty and over 1000 character messages rejected)
+- Error handling on socket events and generic error responses on the server
+- Dockerfiles and docker-compose for the client and server
+- GitHub Actions CI workflow
+- Deployed on Render, with Express serving the built React app
 
 ## Tech Stack
 
@@ -47,22 +59,28 @@ messaging-app/
 ## Setup
 
 **Backend:**
+
 ```bash
 cd server
 npm install
 ```
+
 Create a `.env` file in `server/`:
+
 ```
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
 ```
+
 Run:
+
 ```bash
 npm run dev
 ```
 
 **Frontend:**
+
 ```bash
 cd client
 npm install
@@ -70,11 +88,3 @@ npm run dev
 ```
 
 Both servers need to run simultaneously, backend on port 5000, frontend on port 5173.
-
-## Status
-
-Core functionality complete: auth, rooms, real-time messaging, persistence. Styling (Tailwind CSS) is in progress.
-
-## Author
-
-Md Wahidul Islam ([Stray3rdBorn](https://github.com/Stray3rdBorn))
