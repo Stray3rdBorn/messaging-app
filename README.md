@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/Stray3rdBorn/messaging-app/actions/workflows/ci.yml/badge.svg)](https://github.com/Stray3rdBorn/messaging-app/actions/workflows/ci.yml)
 
-Full stack chat application built to practice real-time communication, authentication, and database design. Users can sign up, create or join chat rooms, and exchange messages instantly with full message history persisted to the database.
+Full stack chat application built for real-time communication, authentication, and database design. Users can sign up, create or join chat rooms, and exchange messages instantly with full message history persisted to the database.
 
 **Live demo:** https://campfire-dcsw.onrender.com
 
